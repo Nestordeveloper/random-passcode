@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="~/css/styles.css">
+@model Password;
+<div class="container">
+    <div>
+        <div class="title">
+            <h1>Random passcode #@Context.Session.GetInt32("PassCode")</h1>
+        </div>
+        <div class="boxCode">
+            <input asp-for="GeneratedPassword" value="@Context.Session.GetString("RandomPassword")">
+        </div>
+        <div class="btnGenerate">
+            <form method="post" asp-action="Generate">
+                <button type="submit" name="generateCode" value="start">Generate</button>
+            </form>
+        </div>
+    </div>
+</div>
